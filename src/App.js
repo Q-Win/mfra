@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import './App.css';
+import classes from './App.css';
 import Person from './Person/Person';
 
 const StyledButton = styled.button`
@@ -96,18 +96,18 @@ class App extends Component {
       // };
     }
 
-    const classes = [];
+    const assignedClasses = [];
     if ( this.state.persons.length <= 2 ) {
-      classes.push( 'red' ); // classes = ['red']
+      assignedClasses.push( 'red' ); // assignedClasses = ['red']
     }
     if ( this.state.persons.length <= 1 ) {
-      classes.push( 'bold' ); // classes = ['red', 'bold']
+      assignedClasses.push( 'bold' ); // assignedClasses = ['red', 'bold']
     }
 
     return (
-        <div className="App">
+        <div className={classes.App}>
           <h1>Hi, Im a React App</h1>
-          <p className={classes.join( ' ' )}>This is really working!</p>
+          <p className={assignedClasses.join( ' ' )}>This is really working!</p>
           <StyledButton alt={this.state.showPersons} onClick={this.togglePersonsHandler}>
             Toggle Persons
           </StyledButton>
