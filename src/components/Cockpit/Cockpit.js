@@ -1,7 +1,16 @@
 import React from 'react';
 
-const cockpit = () => {
+import classes from './Cockpit.css'
+
+const cockpit = (props) => {
   const assignedClasses = [];
+  let btnClass = '';
+
+
+  if (props.showPersons) {
+    btnClass = classes.Red;
+  }
+
   if (props.persons.length <= 2) {
     assignedClasses.push(classes.red); // classes = ['red']
   }
@@ -9,8 +18,10 @@ const cockpit = () => {
     assignedClasses.push(classes.bold); // classes = ['red', 'bold']
   }
 
+
+
   return (
-    <div>
+    <div className={classes.Cockpit}>
       <h1>Hi, Im a React App</h1>
       <p className={assignedClasses.join(' ')}>This is really working!</p>
       <button className={btnClass} onClick={this.togglePersonsHandler}>
