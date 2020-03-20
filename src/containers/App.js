@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
+
 import classes from './App.css';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
     console.log('[App.js] constructor');
-
   }
-
 
   state = {
     persons: [
@@ -27,8 +25,12 @@ class App extends Component {
     return state;
   }
 
-  componentDidMount(){
-    console.log('[App.js] componentDidMount')
+  // componentWillMount() {
+  //   console.log('[App.js] componentWillMount');
+  // }
+
+  componentDidMount() {
+    console.log('[App.js] componentDidMount');
   }
 
   nameChangedHandler = (event, id) => {
@@ -63,15 +65,17 @@ class App extends Component {
   };
 
   render() {
-    console.log('[App.js] render')
+    console.log('[App.js] render');
     let persons = null;
 
-
     if (this.state.showPersons) {
-      persons =  <Persons
+      persons = (
+        <Persons
           persons={this.state.persons}
           clicked={this.deletePersonHandler}
-          changed={this.nameChangedHandler} />
+          changed={this.nameChangedHandler}
+        />
+      );
     }
 
     return (
@@ -80,7 +84,8 @@ class App extends Component {
           title={this.props.appTitle}
           showPersons={this.state.showPersons}
           persons={this.state.persons}
-          clicked={this.togglePersonsHandler} />
+          clicked={this.togglePersonsHandler}
+        />
         {persons}
       </div>
     );
