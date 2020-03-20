@@ -7,7 +7,8 @@ class App extends Component {
 
   constructor(props){
     super(props);
-    consolie.log('[App.js] constructor');
+    console.log('[App.js] constructor');
+
   }
 
 
@@ -20,6 +21,15 @@ class App extends Component {
     otherState: 'some other value',
     showPersons: false
   };
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('[App.js] getDerivedStateFromProps', props);
+    return state;
+  }
+
+  componentDidMount(){
+    console.log('[App.js] componentDidMount')
+  }
 
   nameChangedHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex(p => {
@@ -53,6 +63,7 @@ class App extends Component {
   };
 
   render() {
+    console.log('[App.js] render')
     let persons = null;
 
 
